@@ -1,0 +1,51 @@
+.input{
+  
+  display: flex;
+  padding: .2rem;
+  justify-content: center;
+  margin:0;
+  background-color: #fff;
+  align-items: center;
+}
+
+.input input {
+  font-family: inherit;
+  width: 35rem;
+  height: 1.5rem;
+  line-height: 1rem;
+  font-weight: inherit;
+  padding: 5px;
+  color: rgba(17, 16, 16, 0.603);
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: rgba(238, 236, 236, 0.911);
+  margin: .5rem;
+  padding-left: 25px;
+  
+}
+.input input:focus {
+  outline: none;
+  color: rgb(10, 10, 10);
+}
+
+.input img {
+  filter: opacity(0.4);
+  width: .8rem;
+  transform: translateX(30px);
+}
+
+.input button {
+  height: 1.5rem;
+  width: 4rem;
+  border: none;
+  background-color: rgb(240, 240, 240);
+  border-radius: 3px;
+  color: rgb(24, 128, 189);
+  
+}
+
+.input button:hover,
+.input button:active {
+  color: rgb(109, 203, 246);
+  cursor: pointer;
+}
