@@ -1,4 +1,4 @@
-import { useState, useEffect,useCallback } from 'react';
+import { useState, useEffect } from 'react';
 import Axios from 'axios';
 import PokemonItem from './PokemonItem';
 import classes from './PokemonsList.module.css'
@@ -9,7 +9,7 @@ const PokemonsList = () => {
   const [pokemons, setPokemons ] = useState([]);
   const[searchInput, setSearchInput] = useState('');
 
-  const getPokemons = useCallback (() => {
+  const getPokemons = () => {
     Axios.get("https://pokeapi.co/api/v2/pokemon?limit=100&offset=0").then(
       (res) =>
         setPokemons(
@@ -21,15 +21,15 @@ const PokemonsList = () => {
         )
     );
     
-  },[])
+  }
 
   useEffect(() => {
     getPokemons()
-  }, [getPokemons]);
+  }, []);
 
-  const getSearchedValue = useCallback ((searchedValue) => {
+  const getSearchedValue = (searchedValue) => {
     setSearchInput(searchedValue);
-   }, []);
+   };
   
   const pokemonsFiltered = pokemons.filter((pokemon) =>
   pokemon.props.name.startsWith(searchInput.toLowerCase())
@@ -40,8 +40,7 @@ const PokemonsList = () => {
     <Fragment>
       <Input onSearch={getSearchedValue} />
     <div className={classes.list}>
-      {!searchInput && pokemons}
-      {searchInput && pokemonsFiltered}
+      {searchInput ? pokemonsFiltered : pokemons}
     </div>
     </Fragment>
   );
