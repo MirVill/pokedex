@@ -1,13 +1,15 @@
 import { useState, useEffect, useCallback } from 'react';
+import PokemonInfo from '../../pages/PokemonInfo';
+import { Route } from 'react-router';
 import Axios from 'axios';
 import Card from "../ui/Card";
 import classes from './PokemonItem.module.css'
+import { NavLink } from 'react-router-dom';
 const PokemonItem = (props) => {
   const [imageLink, setImageLink] = useState('');
  
   const getPokemonData = useCallback(() => {
-    Axios.get(props.url).then((res) =>
-      setImageLink(res.data.sprites.other["official-artwork"]["front_default"])
+    Axios.get(props.url).then((res) => setImageLink(res.data.sprites.other["official-artwork"]["front_default"])
     );
   },[props.url]);
   
@@ -21,11 +23,18 @@ const PokemonItem = (props) => {
   };
   const transformedName = firstLetterToUppercase(string);
 
+  // useEffect(() => {
+  //   props.onGetDetailsUrl(props.name);
+  // }, [props.name])
+  
 
 return (
-  <Card >
-    <img className={classes.img} src={imageLink} alt='Pokemon' />
-    <div>{transformedName}</div>
+  <Card>
+    <NavLink className={classes.link} to={`/pokemons/${props.id}`}>
+      <img className={classes.img} src={imageLink} alt="Pokemon" />
+      <div>{transformedName}</div>
+    </NavLink>
+
   </Card>
 );
 };
