@@ -1,6 +1,4 @@
 import { useState, useEffect, useCallback } from 'react';
-import PokemonInfo from '../../pages/PokemonInfo';
-import { Route } from 'react-router';
 import Axios from 'axios';
 import Card from "../ui/Card";
 import classes from './PokemonItem.module.css'
@@ -22,11 +20,6 @@ const PokemonItem = (props) => {
    return str.charAt(0).toUpperCase() + str.slice(1); 
   };
   const transformedName = firstLetterToUppercase(string);
-
-  // useEffect(() => {
-  //   props.onGetDetailsUrl(props.name);
-  // }, [props.name])
-  
 
 return (
   <Card>

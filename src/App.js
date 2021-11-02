@@ -1,8 +1,8 @@
 import { Route, Switch, Redirect } from "react-router-dom";
 import { useState } from "react";
-import PokemonsList from "./pages/PokemonsList";
+import AllPokemons from "./pages/AllPokemons";
 import Header from "./components/ui/Header";
-import PokemonInfo from "./pages/PokemonInfo";
+import PokemonDetails from "./pages/PokemonDetails";
 
 
 function App() {
@@ -22,10 +22,10 @@ function App() {
             <Redirect to="/pokemons" />
           </Route>
           <Route path="/pokemons" exact>
-            <PokemonsList onGetPokemonData={getPokemonDetailsUrl}/>
+            <AllPokemons />
           </Route>
           <Route path="/pokemons/:pokemonId">
-            <PokemonInfo url = {pokemonDetailsUrl}/>
+            <PokemonDetails/>
           </Route>
         </Switch>
       </main>
