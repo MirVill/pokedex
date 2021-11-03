@@ -1,17 +1,11 @@
 import { Route, Switch, Redirect } from "react-router-dom";
-import { useState } from "react";
+
 import AllPokemons from "./pages/AllPokemons";
 import Header from "./components/ui/Header";
 import PokemonDetails from "./pages/PokemonDetails";
 
 
 function App() {
-  const [pokemonDetailsUrl, setPokemonDetailsUrl] = useState('');
-
-  const getPokemonDetailsUrl = (url) => {
-    setPokemonDetailsUrl(url)
-  };
-
 
   return (
     <div>
