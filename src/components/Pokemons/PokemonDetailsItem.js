@@ -1,7 +1,6 @@
 import Axios from "axios";
 import { Fragment, useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
-import PokemonDetailsAbilities from "./PokemonDetailsAbilities";
 import PokemonDetailsBaseStat from "./PokemonDetailsBaseStat";
 import PokemonDetailsHeader from "./PokemonDetailsHeader";
 import classes from './PokemonDetailsItem.module.css';
@@ -55,30 +54,36 @@ useEffect(() => {
     
     return (
       <Fragment>
-          <PokemonDetailsHeader
-            name={details.name}
-            order={details.order}
-            experience={details.experience}
-            weight={details.weight}
-            height={details.height}
-            id={details.id}
-            image={details.image}
-          />
-            <h2 className={classes.title} >Types</h2>
-            <div className={classes.type} ><ul>{details.types}</ul></div>
-            <div className ={classes.data} >
-            <PokemonDetailsBaseStat stats={details.stats} />
-            <div className={classes.description} >
+        <PokemonDetailsHeader
+          name={details.name}
+          order={details.order}
+          experience={details.experience}
+          weight={details.weight}
+          height={details.height}
+          id={details.id}
+          image={details.image}
+        />
+        <h2 className={classes.title}>Types</h2>
+        <div className={classes.type}>
+          <ul>{details.types}</ul>
+        </div>
+        <div className={classes.data}>
+          <PokemonDetailsBaseStat stats={details.stats} />
+          <div className={classes.description}>
             {details.text}
-            <PokemonDetailsAbilities abilities={details.abilities}/>
-            </div>
-            </div>
-            <div className={classes.btnContainer} >
-            <NavLink className={classes.link} to='/pokemons' >
-            <img className={classes.backImage} src={details.backImage} alt='pokemon back'/>
-            <div className={classes.button}>Back to pokemons</div>
-            </NavLink>
-            </div>
+            <div className={classes.abilitiesContainer}>{details.abilities}</div>
+          </div>
+        </div>
+        <div className={classes.btnContainer}>
+          <NavLink className={classes.link} to="/pokemons">
+            <img
+              className={classes.backImage}
+              src={details.backImage}
+              alt="pokemon back"
+            />
+            <div className={classes.button}>All pokemons</div>
+          </NavLink>
+        </div>
       </Fragment>
     );
 };
