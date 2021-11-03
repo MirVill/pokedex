@@ -2,6 +2,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 1rem;
+    
 }
 .number {
     align-self: flex-start;
@@ -12,6 +14,8 @@
     width: 50%;
     transform: translateX(4rem);
     color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+
     
 }
 .details h1 {
@@ -40,4 +44,5 @@
     width: 260px;
     z-index: 1000;
     transform: translateX(-4rem);
+    
 }

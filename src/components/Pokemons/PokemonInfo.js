@@ -13,7 +13,7 @@ const getData = () => {
       (res) =>
         setPokemonDetails(
           res.data.results.map((data) => (
-            <PokemonDetailsItem key={data.name} url={data.url} />
+            <PokemonDetailsItem key={data.name} url={data.url} name={data.name} />
           ))
         )
     );
