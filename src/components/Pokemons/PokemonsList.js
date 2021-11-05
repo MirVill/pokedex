@@ -1,4 +1,4 @@
-import { useState, useEffect,Fragment } from 'react';
+import { useState, useEffect, Fragment } from 'react';
 import Axios from 'axios';
 import PokemonItem from './PokemonItem';
 import classes from './PokemonsList.module.css'
@@ -19,7 +19,6 @@ const PokemonsList = (props) => {
           })
         )
     );
-    
   };
 
   useEffect(() => {
@@ -29,8 +28,6 @@ const PokemonsList = (props) => {
   const getSearchedValue = (searchedValue) => {
     setSearchInput(searchedValue);
    };
-
-  
   
   const pokemonsFiltered = pokemons.filter((pokemon) =>
   pokemon.props.name.startsWith(searchInput.toLowerCase())
@@ -41,8 +38,7 @@ const PokemonsList = (props) => {
     <Fragment>
       <Input onSearch={getSearchedValue} />
     <div className={classes.list}>
-      {!searchInput && pokemons}
-      {searchInput && pokemonsFiltered}
+      {searchInput ? pokemonsFiltered : pokemons}
     </div>
     </Fragment>
   );

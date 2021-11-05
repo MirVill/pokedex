@@ -3,16 +3,15 @@ import classes from './Input.module.css';
 import mysvg from '../../assets/SVG/search.svg'
 const Input = (props) => {
   const [enteredValue, setEnteredValue] =useState('');
-  const {onSearch} = props;
 
   useEffect(() => {
     const searcher = setTimeout(() => {
-      onSearch(enteredValue);
+     props.onSearch(enteredValue);
     }, 500);
     return () => {
       clearTimeout(searcher);
     };
-  }, [onSearch, enteredValue]);
+  }, [enteredValue]);
 
   const onChangeHandler = (event) => {
     setEnteredValue(event.target.value);
@@ -27,7 +26,7 @@ return (
     <img src={mysvg} alt='search' />
     <input type="text" onChange={onChangeHandler} placeholder='Search pokemon...' value={enteredValue} />
     
-    {enteredValue && <button onClick={cancelHandler} >Cancel</button>}
+    {enteredValue && <button onClick={cancelHandler}>Cancel</button>}
   </div>
 );
 };
