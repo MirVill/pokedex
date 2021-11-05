@@ -1,0 +1,74 @@
+.title{
+  margin: 0;
+  font-weight: 500;
+}
+.data{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.type{
+  background-color: transparent;
+  padding:0;
+  width: 100%;
+  margin: 0 auto;
+  border-bottom: 1px solid #000;
+  border-top: 2px solid #000;
+  
+
+}
+.type ul {
+  display: flex;
+  justify-content: space-evenly;
+  list-style: none;
+  font-size: 1.5rem;
+  color: #000;
+  padding: 0;
+  margin: 2px;
+}
+.description {
+  width: 60vw;
+  display: flex;
+  flex-direction: column;
+}
+.abilitiesContainer{
+    display: flex;
+    align-self: flex-end
+}
+
+.ability{
+  padding: .5rem 2rem;
+  border: 2px solid #fff;
+  margin-bottom: 1rem;
+  background-color: cornflowerblue;
+  margin-top: 2.5rem;
+}
+.btnContainer{
+  display: flex;
+  justify-content: flex-end;
+}
+.link{
+  display: flex;
+  text-decoration: none;
+  align-items: center;
+  width: fit-content;
+}
+.backImage {
+  position:  relative;
+  z-index: 1000;
+  transform: translateX(15px);
+}
+.button {
+  display: flex;
+  align-content: center;
+  background-color:  #990000;
+  color: #fff;
+  padding: .5rem 1rem .5rem 2.5rem;
+  transform: translateX(-30px);
+  border-radius: 10px;
+  text-align: end;
+}
+.button:hover,
+.button:active {
+  padding: .6rem 1.1rem .6rem 2.5rem;
+}

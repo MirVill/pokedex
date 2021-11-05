@@ -1,11 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Fragment } from 'react';
 import Axios from 'axios';
 import PokemonItem from './PokemonItem';
 import classes from './PokemonsList.module.css'
-import { Fragment } from 'react/cjs/react.production.min';
 import Input from '../ui/Input';
 
-const PokemonsList = () => {
+const PokemonsList = (props) => {
   const [pokemons, setPokemons ] = useState([]);
   const[searchInput, setSearchInput] = useState('');
 
@@ -15,13 +14,12 @@ const PokemonsList = () => {
         setPokemons(
           res.data.results.map((data) => {
             return (
-              <PokemonItem key={data.name} name={data.name} url={data.url} />
+              <PokemonItem key={data.name} id={data.name} name={data.name} url={data.url} />
             );
           })
         )
     );
-    
-  }
+  };
 
   useEffect(() => {
     getPokemons()
@@ -34,7 +32,7 @@ const PokemonsList = () => {
   const pokemonsFiltered = pokemons.filter((pokemon) =>
   pokemon.props.name.startsWith(searchInput.toLowerCase())
   );
-   
+
 
   return (
     <Fragment>

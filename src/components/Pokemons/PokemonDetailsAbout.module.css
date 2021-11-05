@@ -1,0 +1,25 @@
+.about {
+  position: absolute;
+  transform: translateX(-150px) translateY(100px) skewY(3deg);
+  background-color: rgb(247, 230, 0);
+  width: 15vw;
+}
+
+.header{
+  text-align: center;
+  font-size: 2rem;
+  border-bottom: 3px solid #fff;
+  transform: skewY(-3deg);
+  padding: .5REM;
+}
+.list{
+ font-size: 1.5rem;
+ text-align: start;
+ padding: 1rem;
+ transform: skewY(-3deg);
+}
+
+.text{
+  font-size: 1.5rem;
+  margin-left: 8vw;
+}

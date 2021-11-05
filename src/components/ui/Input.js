@@ -24,7 +24,7 @@ const Input = (props) => {
 return (
   <div className={classes.input} >
     <img src={mysvg} alt='search' />
-    <input type="text" onChange={onChangeHandler} placeholder='Search' value={enteredValue} />
+    <input type="text" onChange={onChangeHandler} placeholder='Search pokemon...' value={enteredValue} />
     
     {enteredValue && <button onClick={cancelHandler}>Cancel</button>}
   </div>

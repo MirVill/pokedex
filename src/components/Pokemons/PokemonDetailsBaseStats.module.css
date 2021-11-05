@@ -1,0 +1,25 @@
+.stats{
+  background-color:  #0073e6;
+  margin-top: 2.5rem;
+  text-align: left;
+  color:#fff;
+  font-size: 1.5rem;
+  width: 30vw;
+  transform: skewY(-3deg);
+
+}
+
+.stats ul{
+ list-style: none;
+ text-decoration:none;
+ padding-left: 2rem;
+ transform: skewY(3deg);
+}
+
+.header{
+  text-align: center;
+  font-size: 2rem;
+  border-bottom: 3px solid #fff;
+  padding: 5px;
+  transform: skewY(3deg);
+}
