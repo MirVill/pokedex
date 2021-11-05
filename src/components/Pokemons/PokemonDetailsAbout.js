@@ -1,13 +1,12 @@
 import  Axios from "axios";
-import { useState } from "react";
-import { Fragment } from "react/cjs/react.development";
+import { useState, useEffect, Fragment } from "react";
 import classes from './PokemonDetailsAbout.module.css';
 
 const PokemonDetailsAbout = (props) => {
 
   const [data, setData] =  useState({});
 
-  Axios.get(props.url).then((res) =>
+  const getData = () => Axios.get(props.url).then((res) =>
     setData({
       text: res.data["flavor_text_entries"][6]["flavor_text"],
       habitat: res.data.habitat.name.charAt(0).toUpperCase() +
@@ -18,7 +17,11 @@ const PokemonDetailsAbout = (props) => {
       res.data.color.name.slice(1),
     })
   );
-  console.log(data);
+
+  useEffect(() => {
+    getData();
+  }, [])
+  
 return <Fragment>  <div className={classes.about}>
   <div className={classes.header} >About</div>
   <div className={classes.list} >
