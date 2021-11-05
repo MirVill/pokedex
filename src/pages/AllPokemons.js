@@ -1,7 +1,7 @@
 import PokemonsList from "../components/Pokemons/PokemonsList";
 
 const AllPokemons = () => {
-    return <PokemonsList/>
+  return <PokemonsList />;
 };
 
 export default AllPokemons;
