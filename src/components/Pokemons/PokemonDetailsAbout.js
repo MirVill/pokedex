@@ -3,18 +3,19 @@ import { useState, useEffect, Fragment } from "react";
 import classes from './PokemonDetailsAbout.module.css';
 
 const PokemonDetailsAbout = (props) => {
-
-  const [data, setData] =  useState({});
+  const [data, setData] = useState({});
 
   const getData = () => Axios.get(props.url).then((res) =>
     setData({
       text: res.data["flavor_text_entries"][6]["flavor_text"],
-      habitat: res.data.habitat.name.charAt(0).toUpperCase() +
-      res.data.habitat.name.slice(1),
+      habitat:
+        res.data.habitat.name.charAt(0).toUpperCase() +
+        res.data.habitat.name.slice(1),
       happiness: res.data["base_happiness"],
-      captureRate: res.data['capture_rate'],
-      color: res.data.color.name.charAt(0).toUpperCase() +
-      res.data.color.name.slice(1),
+      captureRate: res.data["capture_rate"],
+      color:
+        res.data.color.name.charAt(0).toUpperCase() +
+        res.data.color.name.slice(1),
     })
   );
 
@@ -35,4 +36,4 @@ return <Fragment>  <div className={classes.about}>
   </Fragment>
 };
 
-export default PokemonDetailsAbout; 
+export default PokemonDetailsAbout;
