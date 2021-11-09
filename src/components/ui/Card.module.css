@@ -11,8 +11,7 @@
 }
 
 .card:hover {
-  width: 155px;
-  height: 155px;
+  transform: scale(1.1);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.308);
   cursor: pointer;
 }
