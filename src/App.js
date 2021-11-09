@@ -4,9 +4,7 @@ import AllPokemons from "./pages/AllPokemons";
 import Header from "./components/ui/Header";
 import PokemonDetails from "./pages/PokemonDetails";
 
-
 function App() {
-
   return (
     <div>
       <Header />
@@ -19,7 +17,7 @@ function App() {
             <AllPokemons />
           </Route>
           <Route path="/pokemons/:pokemonId">
-            <PokemonDetails/>
+            <PokemonDetails />
           </Route>
         </Switch>
       </main>
