@@ -1,16 +1,17 @@
 import Axios from "axios";
-import { Fragment, useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useParams, NavLink } from "react-router-dom";
 import PokemonDetailsBaseStat from "./PokemonDetailsBaseStat";
 import PokemonDetailsHeader from "./PokemonDetailsHeader";
 import classes from "./PokemonDetailsItem.module.css";
 import PokemonDetailsAbout from "./PokemonDetailsAbout";
 
-const PokemonDetailsItem = (props) => {
+const PokemonDetailsItem = () => {
   const [details, setDetails] = useState({});
+  const { pokemonId } = useParams();
 
   const getDetails = () => {
-    Axios.get(props.url).then((res) =>
+    Axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`).then((res) =>
       setDetails({
         id: res.data.id,
         name: res.data.name.charAt(0).toUpperCase() + res.data.name.slice(1),
@@ -47,7 +48,7 @@ const PokemonDetailsItem = (props) => {
   }, []);
 
   return (
-    <Fragment>
+    <div className={classes.container} >
       <PokemonDetailsHeader
         name={details.name}
         order={details.order}
@@ -78,7 +79,7 @@ const PokemonDetailsItem = (props) => {
           <div className={classes.button}>All pokemons</div>
         </NavLink>
       </div>
-    </Fragment>
+    </div>
   );
 };
 
