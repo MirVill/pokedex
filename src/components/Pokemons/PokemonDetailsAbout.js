@@ -1,11 +1,12 @@
 import  Axios from "axios";
 import { useState, useEffect, Fragment } from "react";
+import { useParams } from "react-router";
 import classes from './PokemonDetailsAbout.module.css';
 
 const PokemonDetailsAbout = (props) => {
   const [data, setData] = useState({});
-
-  const getData = () => Axios.get(props.url).then((res) =>
+  const { pokemonId }= useParams()
+  const getData = () => Axios.get(`https://pokeapi.co/api/v2/pokemon-species/${pokemonId}`).then((res) =>
     setData({
       text: res.data["flavor_text_entries"][6]["flavor_text"],
       habitat:

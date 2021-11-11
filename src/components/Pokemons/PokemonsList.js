@@ -13,14 +13,12 @@ const PokemonsList = () => {
       (res) =>
         setPokemons(
           res.data.results.map((data) => {
-            return (
-              <PokemonItem
-                key={data.name}
-                id={data.name}
-                name={data.name}
-                url={data.url}
-              />
-            );
+            return {
+              key: data.name,
+              id: data.name,
+              name: data.name,
+              url: data.url,
+            };
           })
         )
     );
@@ -30,19 +28,30 @@ const PokemonsList = () => {
     getPokemons();
   }, []);
 
+  const pokemonsList = pokemons.map((pokemon) => {
+    return (
+      <PokemonItem
+        key={pokemon.name}
+        id={pokemon.name}
+        name={pokemon.name}
+        url={pokemon.url}
+      />
+    );
+  });
+
   const getSearchedValue = (searchedValue) => {
     setSearchInput(searchedValue);
   };
 
-  const pokemonsFiltered = pokemons.filter((pokemon) =>
+  const pokemonsFiltered = pokemonsList.filter((pokemon) =>
     pokemon.props.name.startsWith(searchInput.toLowerCase())
   );
 
   return (
     <Fragment>
-      <Input onSearch={getSearchedValue}/>
+      <Input onSearch={getSearchedValue} />
       <div className={classes.list}>
-        {searchInput ? pokemonsFiltered : pokemons}
+        {searchInput ? pokemonsFiltered : pokemonsList}
       </div>
     </Fragment>
   );
