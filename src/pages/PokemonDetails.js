@@ -1,7 +1,7 @@
-import PokemonInfo from "../components/Pokemons/PokemonInfo";
+import PokemonDetailsItem from "../components/Pokemons/PokemonDetailsItem";
 
 const PokemonDetails = () => {
-  return <PokemonInfo />;
+  return <PokemonDetailsItem />;
 };
 
 export default PokemonDetails;
