@@ -38,7 +38,6 @@ const PokemonDetailsItem = () => {
             {stat["base_stat"]}
           </li>
         )),
-        text: <PokemonDetailsAbout url={res.data.species.url} />,
       })
     );
   };
@@ -65,7 +64,7 @@ const PokemonDetailsItem = () => {
       <div className={classes.data}>
         <PokemonDetailsBaseStat stats={details.stats} />
         <div className={classes.description}>
-          {details.text}
+          <PokemonDetailsAbout />
           <div className={classes.abilitiesContainer}>{details.abilities}</div>
         </div>
       </div>
